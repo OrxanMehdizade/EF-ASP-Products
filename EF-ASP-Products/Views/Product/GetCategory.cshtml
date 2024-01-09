@@ -1,0 +1,9 @@
+﻿@model List<Category>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <p onclick="location.href='@Url.Action("GetAll", "Product", new { categoryId = item.Id })'">@item.Name</p>
+    }
+    
+</div>

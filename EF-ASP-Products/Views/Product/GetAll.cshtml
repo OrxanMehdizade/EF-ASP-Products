@@ -1,0 +1,30 @@
+﻿@model List<Product>
+
+@if(Model is not null){
+
+    <div class="d-flex gap-2">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.ImageUrl" alt="image not available">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">@item.Description</p>
+                    <p class="card-text">@item.Category.Name</p>
+                    <p class="card-text">@item.Price</p>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Product" asp-action="Update" asp-route-id="@item.Id" class="btn btn-danger">Update</a>
+                </div>
+                
+            </div>
+            
+        }
+       
+        
+    </div>
+    <div><a asp-controller="Product" asp-action="Add" style="margin:20px auto" class="btn btn-primary">Add</a></div>
+    <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="GetCategory">Exit</a>
+}
+else{
+    <div><h1>Empty</h1></div>
+}
