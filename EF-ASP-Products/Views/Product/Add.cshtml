@@ -4,9 +4,18 @@
     var categorys = ViewData["Categorys"] as List<Category>;
 }
 
+<style>
+    .btnAddDiv {
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+    }
 
 
-<h2>Add</h2>
+
+</style>
+
+<h1>Add</h1>
 
 <form asp-controller="Product" asp-action="Add" method="post">
     <div class="form-group">
@@ -40,7 +49,8 @@
         <input asp-for="ImageUrl" class="form-control" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Add Product</button>
-    <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="GetAll">Exit</a>
+    <div class="btnAddDiv">
+        <button type="submit" class="btn btn-primary">Add Product</button>
+        <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="GetCategory">Exit</a>
+    </div>
 </form>

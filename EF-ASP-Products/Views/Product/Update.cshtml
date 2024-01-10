@@ -1,6 +1,16 @@
 ﻿@model ProductUpdateViewModel
 
-<h2>Edit Product</h2>
+<h2>Update Product</h2>
+
+
+<style>
+    .btnUpdateDiv {
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+    }
+
+</style>
 
 <form asp-action="Update" method="post">
 
@@ -28,6 +38,8 @@
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update Product</button>
-    <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="GetAll">Exit</a>
+    <div class="btnUpdateDiv">
+        <button type="submit" class="btn btn-primary">Update Product</button>
+        <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="GetAll">Exit</a>
+    </div>
 </form>
