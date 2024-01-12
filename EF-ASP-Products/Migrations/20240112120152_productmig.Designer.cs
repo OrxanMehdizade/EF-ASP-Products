@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF_ASP_Products.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240109112120_ProdutcMigration9")]
-    partial class ProdutcMigration9
+    [Migration("20240112120152_productmig")]
+    partial class productmig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace EF_ASP_Products.Migrations
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedTime")
                         .HasColumnType("datetime2");

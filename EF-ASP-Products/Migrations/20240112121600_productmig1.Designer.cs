@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF_ASP_Products.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240110083256_productmig1")]
+    [Migration("20240112121600_productmig1")]
     partial class productmig1
     {
         /// <inheritdoc />
@@ -35,6 +35,9 @@ namespace EF_ASP_Products.Migrations
 
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifiedTime")
                         .HasColumnType("datetime2");

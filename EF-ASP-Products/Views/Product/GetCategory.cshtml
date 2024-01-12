@@ -8,9 +8,9 @@
 
     #Category-main-div:hover {
         border: 2px solid;
-        border-color: white white orange white;
-        box-shadow: 0 0 10px rgba(255, 165, 0, 1);
-        
+        border-color: white white #007bff white;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 1);
+            
     }
     .card-text{
         padding:5px;
@@ -21,8 +21,8 @@
 
     .card-text:hover{
             border: 5px solid;
-            border-color: white white orange white;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 1);
+            border-color: white white #007bff white;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 1);
             margin-bottom:10px;
 
     }
@@ -40,14 +40,25 @@
 
 </style>
 
+@if (Model.Count > 0)
+{
+    <div class="d-flex  gap-2">
+        @foreach (var item in Model)
+        {
+            <div class="card" id="Category-main-div">
+                <img class="card-img-top" src="@item.ImageUrl" alt="image not available">
+                <p class="card-text" onclick="location.href='@Url.Action("GetAll", "Product", new { categoryId = item.Id })'">@item.Name</p>
+            </div>
+        }
+    </div>
+}
+else{
+<div style="text-align:center; margin: 0 auto">
+    <img src="~/Images\empty-folder.png" alt="Image Description" />
 
-<div class="d-flex  gap-2">
-    @foreach (var item in Model)
-    {
-        <div class="card" id="Category-main-div">
-            <img class="card-img-top" src="@item.ImageUrl" alt="image not available">
-            <p class="card-text" onclick="location.href='@Url.Action("GetAll", "Product", new { categoryId = item.Id })'">@item.Name</p>
-        </div>
-    } 
 </div>
-<div class="btnAddDiv"><a asp-controller="Product" asp-action="Add" id="btnAdd" class="btn btn-primary">Add</a></div>
+}
+<div class="btnAddDiv">
+    <a asp-controller="Product" asp-action="Add" id="btnAdd" class="btn btn-primary">Add</a>
+    <a asp-controller="Product" asp-action="AddCategory" id="btnAdd" class="btn btn-primary">Add Category</a>
+</div>

@@ -115,6 +115,24 @@ namespace EF_ASP_Products.Controllers
             return View(categories);
         }
 
+        [HttpGet]
+        public IActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(AddCategoryViewModel Categorys)
+        {
+            if (ModelState.IsValid)
+            {
+
+                _context.Categorys.Add(Categorys);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("GetCategory");
+            }
+            return View(Categorys);
+        }
+
 
 
 
